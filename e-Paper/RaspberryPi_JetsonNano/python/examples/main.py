@@ -41,7 +41,7 @@ display_start_line = 0
 font24 = ImageFont.truetype('Courier Prime.ttf', 18) #24
 textWidth=16
 linespacing = 22
-chars_per_line = 32 #28
+chars_per_line = 64 #28
 lines_on_screen = 12
 last_display_update = time.time()
 
@@ -105,7 +105,7 @@ def update_display():
     display_draw.rectangle((0, 0, 800, 480), fill=255)
     
     # Display the previous lines
-    y_position = 270 - linespacing  # leaves room for cursor input
+    y_position = 450 - linespacing  # leaves room for cursor input
 
     #Make a temp array from previous_lines. And then reverse it and display as usual.
     current_line=max(0,len(previous_lines)-lines_on_screen*scrollindex)
@@ -118,8 +118,8 @@ def update_display():
 
     #Display Console Message
     if console_message != "":
-        display_draw.rectangle((300, 270, 400, 300), fill=255)
-        display_draw.text((300, 270), console_message, font=font24, fill=0)
+        display_draw.rectangle((700, 450, 800, 480), fill=255)
+        display_draw.text((700, 450), console_message, font=font24, fill=0)
         console_message = ""
     
     #generate display buffer for display
@@ -139,13 +139,13 @@ def update_input_area(): #this updates the input area of the typewriter (active 
     global updating_input_area
 
     cursor_index = cursor_position
-    display_draw.rectangle((0, 270, 400, 300), fill=255)  # Clear display
+    display_draw.rectangle((0, 450, 800, 480), fill=255)  # Clear display
     
     #add cursor
     temp_content = input_content[:cursor_index] + "|" + input_content[cursor_index:]
     
     #draw input line text
-    display_draw.text((10, 270), str(temp_content), font=font24, fill=0)
+    display_draw.text((10, 450), str(temp_content), font=font24, fill=0)
     
     #generate display buffer for input line
     updating_input_area = True
