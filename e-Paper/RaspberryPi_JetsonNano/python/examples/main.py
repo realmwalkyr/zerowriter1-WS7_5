@@ -11,7 +11,7 @@
 # raspberry pi zero (or any pi). technically, it operates headless as the OS has no
 # access to the SPI screen. it handles keyboard input directly via keyboard library.
 #
-# Provisional Support for waveshare 7in5 800x480 display via epd7in5b_V2 library
+# Provisional Support for waveshare 7in5 800x480 display via epd7in5b_V2 driver
 #
 
 import time
