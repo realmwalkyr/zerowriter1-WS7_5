@@ -4,21 +4,21 @@
 # This code is open-source. Feel free to modify and redistribute as you want.
 # Participate on reddit in r/zerowriter if you want.
 #
-# Using the new4in2part library
+# Using the epd7in5b_V2 library
 #
 # a python e-typewriter using eink and a USB keyboard
 # this program outputs directly to the SPI eink screen, and is driven by a
 # raspberry pi zero (or any pi). technically, it operates headless as the OS has no
 # access to the SPI screen. it handles keyboard input directly via keyboard library.
 #
-# currently ONLY supports waveshare 4in2
+# Provisional Support for waveshare 7in5 800x480 display via epd7in5b_V2 library
 #
 
 import time
 import keyboard
 import keymaps
 from PIL import Image, ImageDraw, ImageFont
-from waveshare_epd import new4in2part
+from waveshare_epd import epd7in5b_V2
 import textwrap
 import subprocess
 import signal
@@ -28,7 +28,7 @@ from pathlib import Path
 
 # Initialize the e-Paper display
 # clear refreshes whole screen, should be done on slow init()
-epd = new4in2part.EPD()
+epd = epd7in5b_V2.EPD()
 epd.init()
 epd.Clear()
 
@@ -102,7 +102,7 @@ def update_display():
     global scrollindex
     
     # Clear the main display area -- also clears input line (270-300)
-    display_draw.rectangle((0, 0, 400, 300), fill=255)
+    display_draw.rectangle((0, 0, 800, 480), fill=255)
     
     # Display the previous lines
     y_position = 270 - linespacing  # leaves room for cursor input
