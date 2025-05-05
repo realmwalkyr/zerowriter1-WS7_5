@@ -150,7 +150,7 @@ def update_input_area(): #this updates the input area of the typewriter (active 
     #generate display buffer for input line
     updating_input_area = True
     #partial_buffer = epd.getbuffer(display_image)
-    epd.display(partial_buffer)
+    #epd.display(partial_buffer)
     updating_input_area = False
     
 def insert_character(character):
@@ -261,8 +261,8 @@ def handle_key_press(e):
         #run powerdown script
         display_draw.rectangle((0, 0, 400, 300), fill=255)  # Clear display
         display_draw.text((55, 150), "ZeroWriter Powered Down.", font=font24, fill=0)
-        partial_buffer = epd.getbuffer(display_image)
-        epd.display(partial_buffer)
+        #partial_buffer = epd.getbuffer(display_image)
+        #epd.display(partial_buffer)
         time.sleep(3)
         subprocess.run(['sudo', 'poweroff', '-f'])
         
