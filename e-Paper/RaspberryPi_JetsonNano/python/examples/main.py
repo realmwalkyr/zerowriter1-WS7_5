@@ -149,7 +149,7 @@ def update_input_area(): #this updates the input area of the typewriter (active 
     
     #generate display buffer for input line
     updating_input_area = True
-    partial_buffer = epd.getbuffer(display_image)
+    #partial_buffer = epd.getbuffer(display_image)
     epd.display(partial_buffer)
     updating_input_area = False
     
