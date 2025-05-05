@@ -18,7 +18,7 @@ import time
 import keyboard
 import keymaps
 from PIL import Image, ImageDraw, ImageFont
-from waveshare_epd import new7in5part
+from waveshare_epd import epd7in5b_V2
 import textwrap
 import subprocess
 import signal
@@ -28,7 +28,7 @@ from pathlib import Path
 
 # Initialize the e-Paper display
 # clear refreshes whole screen, should be done on slow init()
-epd = new7in5part.EPD()
+epd = epd7in5b_V2.EPD()
 epd.init()
 epd.Clear()
 
@@ -123,8 +123,8 @@ def update_display():
         console_message = ""
     
     #generate display buffer for display
-    partial_buffer = epd.getbuffer(display_image)
-    epd.display(partial_buffer)
+    #partial_buffer = epd.getbuffer(display_image)
+    #epd.display(partial_buffer)
 
     last_display_update = time.time()
     display_catchup = True
